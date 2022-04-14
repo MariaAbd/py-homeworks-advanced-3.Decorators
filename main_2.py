@@ -14,8 +14,10 @@ def path_dec(path):
             try:
                 with open(path, mode='w') as file:
                     file.write(str([name, start_time, result]))
+                    return result
             except FileNotFoundError:
                 print('Файла не существует')
+
         return new_func
     return print_decorator
 
@@ -23,7 +25,7 @@ def path_dec(path):
 dishes = []
 cook_book = {}
 
-path_recipe = path_dec('dec.txt')
+path_recipe = path_dec('dec_1.txt')
 
 
 @path_recipe

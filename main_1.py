@@ -12,6 +12,7 @@ def print_decorator(old_func):
         print('___________')
         with open('dec.txt', mode='w') as file:
             file.write(str([name, start_time, result]))
+            return new_func
     return new_func
 
 
