@@ -6,13 +6,11 @@ def print_decorator(old_func):
         name = old_func.__name__
         start_time = str(datetime.datetime.now())
         result = old_func(*args, **kwargs)
-        print('Вызвана функция', name, 'в', start_time)
-        print(f'С аргументами {args}')
-        print('Получен результат', result)
-        print('___________')
         with open('dec.txt', mode='w') as file:
             file.write(str([name, start_time, result]))
-            return new_func
+            return f'Вызвана функция {name} в {start_time}', f'С аргументами {args}',\
+                   f'Получен результат {result}'
+
     return new_func
 
 
